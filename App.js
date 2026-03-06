@@ -1,5 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useState } from "react";
 
 import HomeScreen from "./src/screens/HomeScreen";
 import AddContactScreen from "./src/screens/AddContactScreen";
@@ -9,20 +10,30 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
 
+  const [contacts, setContacts] = useState([]);
+
   return (
     <NavigationContainer>
-
       <Stack.Navigator>
 
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-        />
+        <Stack.Screen name="Accueil">
+          {(props) => (
+            <HomeScreen
+              {...props}
+              contacts={contacts}
+            />
+          )}
+        </Stack.Screen>
 
-        <Stack.Screen
-          name="AddContact"
-          component={AddContactScreen}
-        />
+        <Stack.Screen name="Ajouter">
+          {(props) => (
+            <AddContactScreen
+              {...props}
+              contacts={contacts}
+              setContacts={setContacts}
+            />
+          )}
+        </Stack.Screen>
 
         <Stack.Screen
           name="Detail"
@@ -30,7 +41,6 @@ export default function App() {
         />
 
       </Stack.Navigator>
-
     </NavigationContainer>
   );
 }
