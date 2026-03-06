@@ -10,13 +10,11 @@ export default function ContactDetailScreen({ route }) {
       <Text style={styles.title}>Détail du contact</Text>
 
       <View style={styles.card}>
-
         <Text style={styles.label}>Nom</Text>
         <Text style={styles.value}>{contact.name}</Text>
 
         <Text style={styles.label}>Téléphone</Text>
         <Text style={styles.value}>{contact.phone}</Text>
-
       </View>
 
     </View>
@@ -40,20 +38,20 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: "#ffffff",
     padding: 20,
-    borderRadius: 10,
+    borderRadius: 8,
     borderWidth: 1,
-    borderColor: "#ddd"
+    borderColor: "#dddddd"
   },
 
   label: {
     fontSize: 14,
-    color: "gray",
+    color: "#777777",
     marginTop: 10
   },
 
   value: {
     fontSize: 18,
-    marginBottom: 10
+    marginTop: 4
   }
 
 });
